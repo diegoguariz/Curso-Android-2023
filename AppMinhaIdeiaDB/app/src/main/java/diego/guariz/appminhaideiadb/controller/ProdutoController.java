@@ -6,6 +6,7 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
 
+import diego.guariz.appminhaideiadb.datamodel.ClienteDataModel;
 import diego.guariz.appminhaideiadb.datamodel.ProdutoDataModel;
 import diego.guariz.appminhaideiadb.datasource.AppDataBase;
 import diego.guariz.appminhaideiadb.model.Produto;
@@ -44,7 +45,7 @@ public class ProdutoController extends AppDataBase implements ICrud<Produto> {
         dadoDoObjeto.put(ProdutoDataModel.NOME_PRODUTO, obj.getNome_produto());
         dadoDoObjeto.put(ProdutoDataModel.FORNECEDOR, obj.getFornecedor());
 
-        return false;
+        return update(ProdutoDataModel.TABELA, dadoDoObjeto);
     }
 
 

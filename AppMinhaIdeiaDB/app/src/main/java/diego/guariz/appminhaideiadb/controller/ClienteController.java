@@ -60,20 +60,11 @@ public class ClienteController extends AppDataBase implements ICrud<Cliente> {
 
         dadoDoObjeto = new ContentValues();
 
-        // Key, valor
-        // UPDATE TABLE
-
         dadoDoObjeto.put(ClienteDataModel.ID, obj.getId());
         dadoDoObjeto.put(ClienteDataModel.NOME, obj.getNome());
         dadoDoObjeto.put(ClienteDataModel.EMAIL, obj.getEmail());
 
-        // Enviar os dados  (dadoDoObjeto) para a classe APPDatabase
-        // utilizando um método capaz de alterar o OBJ no
-        // banco de dados, de qualquer tabela (Cliente no caso)
-        // respeitando o ID (PK)
-
-
-        return true;
+        return update(ClienteDataModel.TABELA, dadoDoObjeto);
 
     }
 

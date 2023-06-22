@@ -35,16 +35,43 @@ public class MainActivity extends AppCompatActivity {
         objCliente = new Cliente();
         objProduto = new Produto();
 
-        objCliente.setId(1);
-        objCliente.setNome("Diego Guariz");
-        objCliente.setEmail("diego@guariz.com.br");
+        objCliente.setId(3);
+        objCliente.setNome("Laura Lorenzon Guariz");
+        objCliente.setEmail("laura@yahoo.com");
 
-        objProduto.setId(2);
-        objProduto.setNome_produto("HD Externo 1Gb");
-        objProduto.setFornecedor("Seagate");
+        objProduto.setId(3);
+        objProduto.setNome_produto("Notebook i7 500Gb SSD");
+        objProduto.setFornecedor("Acer");
+
+        // Alterar o Cliente / Produto
+        if (clienteController.alterar(objCliente)) {
+            Toast.makeText(MainActivity.this, "Cliente " + objCliente.getNome() + " Alterado com sucesso!",
+                    Toast.LENGTH_SHORT).show();
+
+            Log.i(AppUtil.TAG, "onCreate: Cliente " + objCliente.getNome() + " Alterado com sucesso!");
+        } else {
+            Toast.makeText(MainActivity.this, "Cliente " + objCliente.getNome() + " não Alterado com sucesso!",
+                    Toast.LENGTH_SHORT).show();
+
+            Log.e(AppUtil.TAG, "onCreate: Cliente " + objCliente.getNome() + " não Alterado com sucesso!");
+        }
+
+        // Incluir o Produto
+        if (produtoController.alterar(objProduto)) {
+            Toast.makeText(MainActivity.this, "Produto " + objProduto.getNome_produto() + " Alterado com sucesso!",
+                    Toast.LENGTH_SHORT).show();
+
+            Log.i(AppUtil.TAG, "onCreate: Produto " + objProduto.getNome_produto() + " Alterado com sucesso!");
+        } else {
+            Toast.makeText(MainActivity.this, "Produto " + objProduto.getNome_produto() + " não Alterado com sucesso!",
+                    Toast.LENGTH_SHORT).show();
+
+            Log.e(AppUtil.TAG, "onCreate: Produto " + objProduto.getNome_produto() + " não Alterado com sucesso!");
+        }
 
 
         // Excluir o Cliente
+/*
         if (clienteController.deletar(objCliente.getId())) {
             Toast.makeText(MainActivity.this, "Cliente " + objCliente.getNome() + " excluído com sucesso!",
                     Toast.LENGTH_SHORT).show();
@@ -69,21 +96,11 @@ public class MainActivity extends AppCompatActivity {
 
             Log.e(AppUtil.TAG, "onCreate: Produto " + objProduto.getNome_produto() + " não excluído com sucesso!");
         }
+*/
 
-
-        /*objProduto = new Produto();
-
-        objCliente.setNome("Diego Guariz");
-        objCliente.setEmail("diego@guariz.com.br");
-
-        objProduto.setNome_produto("HD Externo 1Gb");
-        objProduto.setFornecedor("Seagate");
-
-
-        produtoController = new ProdutoController(getApplicationContext());
 
         // Incluir o Cliente
-        if (clienteController.incluir(objCliente)) {
+ /*       if (clienteController.incluir(objCliente)) {
             Toast.makeText(MainActivity.this, "Cliente " + objCliente.getNome() + " incluido com sucesso!",
                     Toast.LENGTH_SHORT).show();
 
