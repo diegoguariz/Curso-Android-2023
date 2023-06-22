@@ -9,7 +9,6 @@ import java.util.List;
 
 import diego.guariz.appminhaideiadb.api.AppUtil;
 import diego.guariz.appminhaideiadb.datamodel.ClienteDataModel;
-import diego.guariz.appminhaideiadb.datamodel.ProdutoDataModel;
 import diego.guariz.appminhaideiadb.datasource.AppDataBase;
 import diego.guariz.appminhaideiadb.model.Cliente;
 
@@ -48,6 +47,14 @@ public class ClienteController extends AppDataBase implements ICrud<Cliente> {
 
     }
 
+
+    @Override
+    public boolean deletar(int id) {
+
+        return deleteByID(ClienteDataModel.TABELA, id);
+
+    }
+
     @Override
     public boolean alterar(Cliente obj) {
 
@@ -67,27 +74,6 @@ public class ClienteController extends AppDataBase implements ICrud<Cliente> {
 
 
         return true;
-
-    }
-
-    @Override
-    public boolean deletar(Cliente obj) {
-
-        dadoDoObjeto = new ContentValues();
-
-        // Key, valor
-
-        // DELETE FROM
-        dadoDoObjeto.put(ClienteDataModel.ID, obj.getId());
-
-        // Enviar os dados  (dadoDoObjeto) para a classe APPDatabase
-        // utilizando um método capaz de deletar o OBJ no
-        // banco de dados, de qualquer tabela (Cliente no caso)
-        // respeitando o ID (PK)
-
-
-        // Retorno sempre sera verdadeiro ou falso
-        return insert(ClienteDataModel.TABELA, dadoDoObjeto);
 
     }
 

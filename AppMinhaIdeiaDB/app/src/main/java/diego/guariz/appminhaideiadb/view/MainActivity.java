@@ -29,8 +29,49 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d(AppUtil.TAG, "onCreate: App Minha Ideia Database");
 
+        clienteController = new ClienteController(getApplicationContext());
+        produtoController = new ProdutoController(getApplicationContext());
+
         objCliente = new Cliente();
         objProduto = new Produto();
+
+        objCliente.setId(1);
+        objCliente.setNome("Diego Guariz");
+        objCliente.setEmail("diego@guariz.com.br");
+
+        objProduto.setId(2);
+        objProduto.setNome_produto("HD Externo 1Gb");
+        objProduto.setFornecedor("Seagate");
+
+
+        // Excluir o Cliente
+        if (clienteController.deletar(objCliente.getId())) {
+            Toast.makeText(MainActivity.this, "Cliente " + objCliente.getNome() + " excluído com sucesso!",
+                    Toast.LENGTH_SHORT).show();
+
+            Log.i(AppUtil.TAG, "onCreate: Cliente " + objCliente.getNome() + " excluído com sucesso!");
+        } else {
+            Toast.makeText(MainActivity.this, "Cliente " + objCliente.getNome() + " não excluído com sucesso!",
+                    Toast.LENGTH_SHORT).show();
+
+            Log.e(AppUtil.TAG, "onCreate: Cliente " + objCliente.getNome() + " não excluído com sucesso!");
+        }
+
+        // Excluir o Produto
+        if (produtoController.deletar(objCliente.getId())) {
+            Toast.makeText(MainActivity.this, "Produto " + objProduto.getNome_produto() + " excluído com sucesso!",
+                    Toast.LENGTH_SHORT).show();
+
+            Log.i(AppUtil.TAG, "onCreate: Produto " + objProduto.getNome_produto() + " excluído com sucesso!");
+        } else {
+            Toast.makeText(MainActivity.this, "Produto " + objProduto.getNome_produto() + " não excluído com sucesso!",
+                    Toast.LENGTH_SHORT).show();
+
+            Log.e(AppUtil.TAG, "onCreate: Produto " + objProduto.getNome_produto() + " não excluído com sucesso!");
+        }
+
+
+        /*objProduto = new Produto();
 
         objCliente.setNome("Diego Guariz");
         objCliente.setEmail("diego@guariz.com.br");
@@ -38,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         objProduto.setNome_produto("HD Externo 1Gb");
         objProduto.setFornecedor("Seagate");
 
-        clienteController = new ClienteController(getApplicationContext());
+
         produtoController = new ProdutoController(getApplicationContext());
 
         // Incluir o Cliente
@@ -65,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
 
             Log.e(AppUtil.TAG, "onCreate: Produto " + objProduto.getNome_produto() + " não incluido com sucesso!");
-        }
+        }*/
 
     }
 }

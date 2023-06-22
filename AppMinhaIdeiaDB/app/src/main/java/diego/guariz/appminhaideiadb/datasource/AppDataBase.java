@@ -65,4 +65,22 @@ public class AppDataBase extends SQLiteOpenHelper {
         return retorno;
 
     }
+
+    // Método para excluir registro do banco de dados
+    public boolean deleteByID(String tabela, int id) {
+        db = getWritableDatabase();
+
+        boolean retorno = false;
+
+        // Regra de Negócio
+        try {
+            retorno = db.delete(tabela, "id=?", new String[] {String.valueOf(id)}) > 0;
+
+        } catch (Exception e) {
+            Log.d(AppUtil.TAG, "delete: " + e.getMessage());
+        }
+
+        return retorno;
+
+    }
 }

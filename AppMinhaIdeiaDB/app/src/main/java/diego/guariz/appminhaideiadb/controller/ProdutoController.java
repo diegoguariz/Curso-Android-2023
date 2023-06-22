@@ -30,6 +30,12 @@ public class ProdutoController extends AppDataBase implements ICrud<Produto> {
     }
 
     @Override
+    public boolean deletar(int id) {
+
+        return deleteByID(ProdutoDataModel.TABELA, id);
+    }
+
+    @Override
     public boolean alterar(Produto obj) {
 
         dadoDoObjeto = new ContentValues();
@@ -41,15 +47,6 @@ public class ProdutoController extends AppDataBase implements ICrud<Produto> {
         return false;
     }
 
-    @Override
-    public boolean deletar(Produto obj) {
-
-        dadoDoObjeto = new ContentValues();
-
-        dadoDoObjeto.put(ProdutoDataModel.ID, obj.getId());
-
-        return false;
-    }
 
     @Override
     public List<Produto> listar() {
