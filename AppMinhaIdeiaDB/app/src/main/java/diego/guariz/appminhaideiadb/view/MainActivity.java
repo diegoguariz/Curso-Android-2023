@@ -61,6 +61,12 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+        for (Produto objProd: produtoController.listar())  {
+
+            Log.i("Listar Produtos", "Produto: " + objProd.getId() + " " + objProd.getNome_produto() + " " + objProd.getFornecedor());
+
+        }
+
         // Alterar o Cliente / Produto
         /*if (clienteController.alterar(objCliente)) {
             Toast.makeText(MainActivity.this, "Cliente " + objCliente.getNome() + " Alterado com sucesso!",

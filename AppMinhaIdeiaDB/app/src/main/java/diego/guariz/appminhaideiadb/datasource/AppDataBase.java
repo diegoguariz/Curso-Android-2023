@@ -16,6 +16,7 @@ import diego.guariz.appminhaideiadb.api.AppUtil;
 import diego.guariz.appminhaideiadb.datamodel.ClienteDataModel;
 import diego.guariz.appminhaideiadb.datamodel.ProdutoDataModel;
 import diego.guariz.appminhaideiadb.model.Cliente;
+import diego.guariz.appminhaideiadb.model.Produto;
 
 public class AppDataBase extends SQLiteOpenHelper {
 
@@ -126,8 +127,6 @@ public class AppDataBase extends SQLiteOpenHelper {
             do {
                 objCli = new Cliente();
 
-                Log.e("Erro", "listarClientes: " + ClienteDataModel.ID);
-
                 objCli.setId(cursor.getInt(cursor.getColumnIndex(ClienteDataModel.ID)));
                 objCli.setNome(cursor.getString(cursor.getColumnIndex(ClienteDataModel.NOME)));
                 objCli.setEmail(cursor.getString(cursor.getColumnIndex(ClienteDataModel.EMAIL)));
@@ -142,4 +141,38 @@ public class AppDataBase extends SQLiteOpenHelper {
         return clientes;
 
     }
+
+    @SuppressLint("Range")
+    public List<Produto> listarProdutos(String tabela) {
+
+        db = getWritableDatabase();
+
+        List<Produto> produtos = new ArrayList<>();
+        Produto objProd;
+
+        String sql = "SELECT * FROM " + tabela;
+
+        Cursor cursor;
+
+        cursor = db.rawQuery(sql, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                objProd = new Produto();
+
+                objProd.setId(cursor.getInt(cursor.getColumnIndex(ProdutoDataModel.ID)));
+                objProd.setNome_produto(cursor.getString(cursor.getColumnIndex(ProdutoDataModel.NOME_PRODUTO)));
+                objProd.setFornecedor(cursor.getString(cursor.getColumnIndex(ProdutoDataModel.FORNECEDOR)));
+
+                produtos.add(objProd);
+
+                Log.i("Listar Produtos", "LIstar Produto: " + objProd.getNome_produto());
+
+            } while (cursor.moveToNext());
+        }
+
+        return produtos;
+
+    }
+
 }

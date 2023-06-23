@@ -9,6 +9,7 @@ import java.util.List;
 import diego.guariz.appminhaideiadb.datamodel.ClienteDataModel;
 import diego.guariz.appminhaideiadb.datamodel.ProdutoDataModel;
 import diego.guariz.appminhaideiadb.datasource.AppDataBase;
+import diego.guariz.appminhaideiadb.model.Cliente;
 import diego.guariz.appminhaideiadb.model.Produto;
 
 public class ProdutoController extends AppDataBase implements ICrud<Produto> {
@@ -51,8 +52,7 @@ public class ProdutoController extends AppDataBase implements ICrud<Produto> {
 
     @Override
     public List<Produto> listar() {
-        List<Produto> lista = new ArrayList<>();
 
-        return lista;
+        return listarProdutos(ProdutoDataModel.TABELA);
     }
 }
