@@ -1,14 +1,21 @@
 package diego.guariz.appminhaideiadb.datasource;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.hardware.lights.LightsManager;
 import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import diego.guariz.appminhaideiadb.api.AppUtil;
 import diego.guariz.appminhaideiadb.datamodel.ClienteDataModel;
 import diego.guariz.appminhaideiadb.datamodel.ProdutoDataModel;
+import diego.guariz.appminhaideiadb.model.Cliente;
 
 public class AppDataBase extends SQLiteOpenHelper {
 
@@ -98,6 +105,41 @@ public class AppDataBase extends SQLiteOpenHelper {
         }
 
         return retorno;
+
+    }
+
+    @SuppressLint("Range")
+    public List<Cliente> listarClientes(String tabela) {
+
+        db = getWritableDatabase();
+
+        List<Cliente> clientes = new ArrayList<>();
+        Cliente objCli;
+
+        String sql = "SELECT * FROM " + tabela;
+
+        Cursor cursor;
+
+        cursor = db.rawQuery(sql, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                objCli = new Cliente();
+
+                Log.e("Erro", "listarClientes: " + ClienteDataModel.ID);
+
+                objCli.setId(cursor.getInt(cursor.getColumnIndex(ClienteDataModel.ID)));
+                objCli.setNome(cursor.getString(cursor.getColumnIndex(ClienteDataModel.NOME)));
+                objCli.setEmail(cursor.getString(cursor.getColumnIndex(ClienteDataModel.EMAIL)));
+
+                clientes.add(objCli);
+
+                Log.i("Listar", "LIstar AppData: " + objCli.getNome());
+
+            } while (cursor.moveToNext());
+        }
+
+        return clientes;
 
     }
 }

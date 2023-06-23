@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     ClienteController clienteController;
     ProdutoController produtoController;
     Cliente objCliente;
-    Produto objProduto;
+    //Produto objProduto;
 
     // Context context;
 
@@ -32,7 +32,17 @@ public class MainActivity extends AppCompatActivity {
         clienteController = new ClienteController(getApplicationContext());
         produtoController = new ProdutoController(getApplicationContext());
 
-        objCliente = new Cliente();
+       /* for (int i = 0; i < 49; i++) {
+            objCliente = new Cliente();
+
+            objCliente.setNome("Laura Lorenzon Guariz" + i);
+            objCliente.setEmail(i + "laura@yahoo.com");
+
+            clienteController.incluir(objCliente);
+
+        }*/
+
+        /*objCliente = new Cliente();
         objProduto = new Produto();
 
         objCliente.setId(3);
@@ -41,10 +51,18 @@ public class MainActivity extends AppCompatActivity {
 
         objProduto.setId(3);
         objProduto.setNome_produto("Notebook i7 500Gb SSD");
-        objProduto.setFornecedor("Acer");
+        objProduto.setFornecedor("Acer");*/
+
+        //clienteController.listar();
+
+        for (Cliente objCli: clienteController.listar())  {
+
+            Log.i("Listar", "Cliente: " + objCli.getId() + " " + objCli.getNome() + " " + objCli.getEmail());
+
+        }
 
         // Alterar o Cliente / Produto
-        if (clienteController.alterar(objCliente)) {
+        /*if (clienteController.alterar(objCliente)) {
             Toast.makeText(MainActivity.this, "Cliente " + objCliente.getNome() + " Alterado com sucesso!",
                     Toast.LENGTH_SHORT).show();
 
@@ -67,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
 
             Log.e(AppUtil.TAG, "onCreate: Produto " + objProduto.getNome_produto() + " não Alterado com sucesso!");
-        }
+        }*/
 
 
         // Excluir o Cliente
