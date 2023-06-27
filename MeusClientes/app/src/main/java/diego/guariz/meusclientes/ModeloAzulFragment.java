@@ -33,7 +33,9 @@ public class ModeloAzulFragment extends Fragment {
 
         TextView txtTitulo = view.findViewById(R.id.txtTitulo);
 
-        txtTitulo.setTextColor(ColorStateList.valueOf(Color.WHITE));
+        txtTitulo.setText(R.string.modelo_fragment);
+
+        txtTitulo.setTextColor(ColorStateList.valueOf(Color.CYAN));
 
         return view;
     }

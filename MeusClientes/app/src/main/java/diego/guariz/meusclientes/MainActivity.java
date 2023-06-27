@@ -21,16 +21,20 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
 
+    // Gerenciamento dos Fragmentos
     FragmentManager fragmentManager;
 
+    // Gerenciamento do menu drawer
     NavigationView navigationView;
 
+    // Gerenciamento do menu action bar - barra do topo
     Menu menu;
+
+    // Gerenciamento de ada item do menu drawer
     MenuItem nav_preto;
     MenuItem nav_vermelho;
     MenuItem nav_azul;
 
-    TextView txtTitulo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +62,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        txtTitulo = findViewById(R.id.txtTitulo);
 
         fragmentManager = getSupportFragmentManager();
 
@@ -106,13 +108,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             menu = navigationView.getMenu();
 
             nav_preto = menu.findItem(R.id.nav_preto);
-            nav_preto.setTitle("Preto Ativado");
+            nav_preto.setTitle("Preto Ativo");
 
             nav_vermelho = menu.findItem(R.id.nav_vermelho);
-            nav_vermelho.setTitle("Vermelho Ativado");
+            nav_vermelho.setTitle("Vermelho");
 
             nav_azul = menu.findItem(R.id.nav_azul);
-            nav_azul.setTitle("Azul Ativado");
+            nav_azul.setTitle("Azul");
 
             navigationView.setItemTextColor(ColorStateList.valueOf(Color.BLACK));
 
@@ -125,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             nav_preto.setTitle("Preto");
 
             nav_vermelho = menu.findItem(R.id.nav_vermelho);
-            nav_vermelho.setTitle("Vermelho Ativado");
+            nav_vermelho.setTitle("Vermelho Ativo");
 
             nav_azul = menu.findItem(R.id.nav_azul);
             nav_azul.setTitle("Azul");
@@ -144,7 +146,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             nav_vermelho.setTitle("Vermelho");
 
             nav_azul = menu.findItem(R.id.nav_azul);
-            nav_azul.setTitle("Azul");
+            nav_azul.setTitle("Azul Ativo");
 
             navigationView.setItemTextColor(ColorStateList.valueOf(Color.BLACK));
 
