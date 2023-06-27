@@ -1,4 +1,4 @@
-package diego.guariz.meusclientes;
+package diego.guariz.meusclientes.view;
 
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -11,13 +11,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class ModeloVermelhoFragment extends Fragment {
+import diego.guariz.meusclientes.R;
+
+public class ModeloPretoFragment extends Fragment {
 
     View view;
 
-    public ModeloVermelhoFragment() {
+    public ModeloPretoFragment() {
         // Required empty public constructor
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +30,7 @@ public class ModeloVermelhoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.fragment_vermelho, container, false);
+        view = inflater.inflate(R.layout.fragment_preto, container, false);
 
         TextView txtTitulo = view.findViewById(R.id.txtTitulo);
 
@@ -36,5 +39,6 @@ public class ModeloVermelhoFragment extends Fragment {
         txtTitulo.setTextColor(ColorStateList.valueOf(Color.CYAN));
 
         return view;
+
     }
 }
