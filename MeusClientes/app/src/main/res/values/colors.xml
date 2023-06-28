@@ -8,8 +8,9 @@
     <color name="vermelho">#CA1300</color>
     <color name="preto">#000000</color>
     <color name="azul">#07487C</color>
+    <color name="branco">#FFFFFF</color>
 
     <!-- Cores para os campos dos layouts -->
     <color name="campos">#E4D3B8</color>
-    
+
 </resources>

@@ -165,6 +165,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_listar_clientes) {
             setTitle("Lista de Clientes");
             fragmentManager.beginTransaction().replace(R.id.content_fragment, new ListarClientesFragment()).commit();
+
+        } else if (id == R.id.nav_listar_clientes_card) {
+            setTitle("Lista de Clientes (Cards)");
+            fragmentManager.beginTransaction().replace(R.id.content_fragment, new ListarClientesCardsFragment()).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
