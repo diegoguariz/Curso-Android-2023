@@ -8,11 +8,13 @@
     <string name="action_settings">Sair</string>
 
     <string name="modelo_fragment">Cliente VIP DEMO</string>
+    <string name="listar_clientes_fragment">Lista de Clientes</string>
 
     <string name="fragmento_preto">Fragmento Preto</string>
     <string name="fragmento_vermelho">Fragmento Vermelho</string>
     <string name="fragmento_azul">Fragmento Azul</string>
     <string name="fragmento_adicionar_cliente">Adicionar Cliente</string>
+    <string name="fragmento_listar_clientes">Listar Clientes</string>
 
 
     <string name="hello_blank_fragment">Hello blank fragment</string>

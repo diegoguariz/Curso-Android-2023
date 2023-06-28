@@ -18,6 +18,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.sql.RowId;
+
 import diego.guariz.meusclientes.R;
 import diego.guariz.meusclientes.controller.ClienteController;
 
@@ -67,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         fragmentManager = getSupportFragmentManager();
 
-        fragmentManager.beginTransaction().replace(R.id.content_fragment, new ModeloVermelhoFragment()).commit();
+        fragmentManager.beginTransaction().replace(R.id.content_fragment, new ListarClientesFragment()).commit();
 
         ClienteController clienteController = new ClienteController(getBaseContext());
 
@@ -160,6 +162,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             setTitle("Novo Cliente");
             fragmentManager.beginTransaction().replace(R.id.content_fragment, new AdicionarClienteFragment()).commit();
 
+        } else if (id == R.id.nav_listar_clientes) {
+            setTitle("Lista de Clientes");
+            fragmentManager.beginTransaction().replace(R.id.content_fragment, new ListarClientesFragment()).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
