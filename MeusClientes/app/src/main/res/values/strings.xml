@@ -15,6 +15,7 @@
     <string name="fragmento_vermelho">Fragmento Vermelho</string>
     <string name="fragmento_azul">Fragmento Azul</string>
     <string name="fragmento_adicionar_cliente">Adicionar Cliente</string>
+    <string name="fragmento_adicionar_cliente_cards">Adicionar Cliente (Cards)</string>
     <string name="fragmento_listar_clientes">Listar Clientes</string>
     <string name="fragmento_listar_clientes_card">Listar Clientes (Card)</string>
 
@@ -23,4 +24,6 @@
 
     <!-- Textos para o Layout Adicionar Novo Cliente -->
     <string name="novoCliente">Adicionar Novo Cliente</string>
+    <string name="txtPerfilContato">Perfil e Contato</string>
+    <string name="txtEndereco">Endereço</string>
 </resources>

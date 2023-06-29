@@ -162,6 +162,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             setTitle("Novo Cliente");
             fragmentManager.beginTransaction().replace(R.id.content_fragment, new AdicionarClienteFragment()).commit();
 
+        } else if (id == R.id.nav_adicionar_cliente_cards) {
+
+            setTitle("Novo Cliente (Cards)");
+            fragmentManager.beginTransaction().replace(R.id.content_fragment, new AdicionarClienteCardsFragment()).commit();
+
         } else if (id == R.id.nav_listar_clientes) {
             setTitle("Lista de Clientes");
             fragmentManager.beginTransaction().replace(R.id.content_fragment, new ListarClientesFragment()).commit();
